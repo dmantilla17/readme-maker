@@ -32,26 +32,42 @@ const questions = [
 
 //FUNCTIONS
 const generateReadMe= ({ name,motivation,solutions,example,learned }) => {
+  function generateMarkDown(answers){
+    const markDownText= writeToFile;
+  }
     const template= 'README.md';
     return template; 
+  
 }
+
 function writeToFile(READMEmd); {
     const fileName= (READMEmd);
-}
+    return fileName;
+};
 
 const init = () => {
   //prompt the user to answer questions for the question bank
   prompt(questions).then((answers) => {
     console.log(questions);
     //generate readMe for answers
+    
    const readMe= generateReadMe(answers);
   });
+  init();
 };
 
-init();
-{
-}
+
 //USER INTERACTIONS
-inquirer.prompt({});
+inquirer.prompt(questions)
+.then((answers) => {;
+const markDown= generateMarkDown(answers);
+});
+fetch((error)=> {
+  if(error.error){
+  } else {
+    console.log("Error, Try again");
+  }
+});
+
 
 //INITIALZATIONS
