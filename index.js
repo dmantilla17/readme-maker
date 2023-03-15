@@ -1,6 +1,7 @@
 //DEPENDENCIES
 const inquirer = require("inquirer");
-const { writeFile } = require("fs");
+const fs = require("fs");
+const path = require("path");
 const generateMarkdown = require("./generateMarkdown");
 //DATA
 const questions = [
@@ -37,6 +38,13 @@ showQuestions();
 function showQuestions() {
   console.log("show questions");
   inquirer.prompt(questions).then((answers) => {
-    console.log(generateMarkdown(answers));
+    write(answers);
   });
+}
+
+function write(answers) {
+  fs.writeFileSync(
+    path.join(process.cwd(), "GeneratedReadme.md"),
+    generateMarkdown(answers)
+  );
 }
