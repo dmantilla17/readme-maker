@@ -1,12 +1,13 @@
 //DEPENDENCIES
 const inquirer = require("inquirer");
 const { writeFile } = require("fs");
+const generateMarkdown = require("./generateMarkdown");
 //DATA
 const questions = [
   {
     type: "input",
     message: "What is the name of your project?",
-    name: "name",
+    name: "title",
   },
   {
     type: "input",
@@ -36,6 +37,6 @@ showQuestions();
 function showQuestions() {
   console.log("show questions");
   inquirer.prompt(questions).then((answers) => {
-    console.log(answers);
+    console.log(generateMarkdown(answers));
   });
 }
