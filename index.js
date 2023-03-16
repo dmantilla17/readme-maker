@@ -3,6 +3,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
 const generateMarkdown = require("./generateMarkdown");
+const { default: Choices } = require("inquirer/lib/objects/choices");
 //DATA
 const questions = [
   {
@@ -29,6 +30,12 @@ const questions = [
     type: "input",
     message: "What did you learn?",
     name: "learned",
+  },
+  {
+    type: "list",
+    message: "Which license would you like to choose?",
+    name: "license",
+    choices: ["MIT", "Mozilla", "ISC", "None"],
   },
 ];
 
